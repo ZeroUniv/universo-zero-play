@@ -1,0 +1,11 @@
+{
+  "id": "./index.html",
+  "name": "Universo Zero \u2014 Valle benchmark",
+  "short_name": "Valle QA",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#101421",
+  "theme_color": "#101421"
+}

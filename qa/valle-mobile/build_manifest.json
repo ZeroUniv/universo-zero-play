@@ -1,8 +1,10 @@
 {
   "issue": 177,
-  "source_main_sha": "bac1838001efe7851865fb1db48d004040f72ce3",
-  "benchmark_sha256": "494824ae00df198b9a5597c0dc5c2f09c7713533a33229a7691d3116c8bab6bf",
-  "asset_catalog_sha256": "96dd9e55a2abc2fae6205345236b8e40c86d96f91f1fa2eaf3292a9479710b2a",
+  "fix_issue": 190,
+  "source_main_sha": "9374801a23594f7ad3f1dfb6c5a275abf5c7f9da",
+  "benchmark_sha256": "099b94a5dd23979745e191499dbd7245218e1d2682c92578171c28003f487443",
+  "browser_policy_sha256": "66fd0b845e1c3aef9560faccc81b04dd235106a43c12ef75f279d3505eef749c",
+  "asset_catalog_sha256": "9ee8964420c99b24febf2a543177abcc4654a11d999c1f2198e6d88f5166847e",
   "models": 37,
   "instances": 2000,
   "seed": 91,
@@ -10,8 +12,8 @@
   "files": [
     {
       "name": "CREDITS.txt",
-      "bytes": 5620,
-      "sha256": "73fa8dab5dc3565a2760caaa5188a972e69ade031c5708cd7be59c2b1c97aeb8"
+      "bytes": 8334,
+      "sha256": "968550aa3f01f971880e676a36b661a4b0490711c7d9a759707b3cab10fff041"
     },
     {
       "name": "index.apple-touch-icon.png",
@@ -30,8 +32,8 @@
     },
     {
       "name": "index.html",
-      "bytes": 5664,
-      "sha256": "e636d9da41ad90784296db3bd424d48f889d961321d9d65d39c05a91bf67ccc9"
+      "bytes": 5986,
+      "sha256": "01019b05faf4dfbc1bb4c4f90353a05e90db2ce1d147b681cc71f1f4a9e232d7"
     },
     {
       "name": "index.icon.png",
@@ -45,8 +47,8 @@
     },
     {
       "name": "index.pck",
-      "bytes": 12468776,
-      "sha256": "06949642c7a3c84ce53ccb1d88de5a0c990e93250e8d10074735ef0602c1adae"
+      "bytes": 12470276,
+      "sha256": "81ebe8b03dc2828d44b8ee03fdb34af416b20af9400054c189cd35d2d1657f25"
     },
     {
       "name": "index.png",
@@ -59,9 +61,14 @@
       "sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0"
     },
     {
+      "name": "index.webmanifest",
+      "bytes": 282,
+      "sha256": "c1b5978095ab1658908664ace36d7133bf62cc405bd5150ec329dd9cb1f23e8c"
+    },
+    {
       "name": "PUBLISH.txt",
-      "bytes": 3325,
-      "sha256": "aabe965face14787370a46905ddac9aa28f33acce8dc65b7f948d55e2b849b36"
+      "bytes": 3931,
+      "sha256": "6fd1d3991a03629b054bb29534a8a182dd5ce5b4d09c4f2c667ee1d33c67598d"
     }
   ]
 }

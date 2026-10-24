@@ -1,5 +1,5 @@
 # Crediti del kit Valle — stile B2 approvato
-Il catalogo runtime contiene solo i 37 modelli sotto. Nessuna erba, terreno o luce.
+Il catalogo runtime contiene i 48 modelli sotto. Nessuna erba, terreno o luce.
 CC0: https://creativecommons.org/publicdomain/zero/1.0/
 CC-BY 4.0: https://creativecommons.org/licenses/by/4.0/
 This work is based on "Watermill" by Nudluria (https://sketchfab.com/nudluria) and "Stylized Bridge low poly" by Pikas (https://sketchfab.com/Pikas), licensed under CC-BY 4.0.
@@ -45,3 +45,27 @@ Modifiche: selezione/assemblaggio dei moduli artistici, scala/orientamento/pivot
 | `bastion_tower` | SmallSquareTowerBricks | Quaternius | [fonte](https://opengameart.org/content/lowpoly-medieval-buildings) | CC0-1.0 |
 
 Originali artistici Quaternius: Medieval Village MegaKit, Stylized Nature MegaKit, Fantasy Props MegaKit, LowPoly Medieval Village Pack e LowPoly Medieval Buildings. Canne: LowPoly Reed di Aredon. Licenze originali conservate in source/licenses/. I campioni storici in hero_sample/, style_sample/ e review/ sono QA esclusa dal runtime tramite .gdignore; non appartengono al catalogo consegnato.
+
+## Pezzi unici della Valle — UZ-176
+
+Solo mesh esistenti di artisti: scelta, assemblaggio, scala, palette, atlante, riduzione e LOD. Le texture fotografiche originali dei cristalli di rubberduck sono escluse: si usa la sola geometria con palette stilizzata. Gli accenti viola delle rune derivano dalla maschera originale dell’artista, incorporata nel colore; niente luce di mappa.
+
+| ID | Originale / componenti | Autori | Fonti | Licenza della composizione |
+|---|---|---|---|---|
+| `fracture_altar` | Rock_Medium_2, scene | Quaternius; Mayantique | [fonte 1](https://quaternius.com/packs/stylizednaturemegakit.html), [fonte 2](https://sketchfab.com/models/c6b9a92e244c4f3bb676ddb6b5bde5c3) | CC-BY-4.0 |
+| `fracture_floating_rock` | scene | Mayantique | [fonte 1](https://sketchfab.com/models/c6b9a92e244c4f3bb676ddb6b5bde5c3) | CC-BY-4.0 |
+| `fracture_ring_stone` | Rock_Medium_2 | Quaternius | [fonte 1](https://quaternius.com/packs/stylizednaturemegakit.html) | CC0-1.0 |
+| `ancient_circle` | scene | Danciu Cristian-Alexa | [fonte 1](https://sketchfab.com/models/b78539a01fce41fea5d4ad1d1afd7b83) | CC-BY-4.0 |
+| `ancient_runestone` | scene | Danciu Cristian-Alexa | [fonte 1](https://sketchfab.com/models/b78539a01fce41fea5d4ad1d1afd7b83) | CC-BY-4.0 |
+| `forest_broken_column` | scene | nico_hartl | [fonte 1](https://sketchfab.com/models/0e66e5525d974b2d968e5b4c1636ef6c) | CC-BY-4.0 |
+| `guardian_broken_column` | scene | nico_hartl | [fonte 1](https://sketchfab.com/models/0e66e5525d974b2d968e5b4c1636ef6c) | CC-BY-4.0 |
+| `crystal_village` | crystal_1_bevel | rubberduck | [fonte 1](https://opengameart.org/content/simple-3d-crystals-unwrapped-simple-texture) | CC0-1.0 |
+| `crystal_glade` | crystal_4_bevel | rubberduck | [fonte 1](https://opengameart.org/content/simple-3d-crystals-unwrapped-simple-texture) | CC0-1.0 |
+| `crystal_field` | crystal_6_bevel | rubberduck | [fonte 1](https://opengameart.org/content/simple-3d-crystals-unwrapped-simple-texture) | CC0-1.0 |
+| `crystal_stone` | crystal_8_bevel | rubberduck | [fonte 1](https://opengameart.org/content/simple-3d-crystals-unwrapped-simple-texture) | CC0-1.0 |
+
+This work is based on "Stylized rock" (https://sketchfab.com/models/c6b9a92e244c4f3bb676ddb6b5bde5c3) by Mayantique (https://sketchfab.com/mayantique), licensed under CC-BY 4.0.
+
+This work is based on "Low Poly Fantasy Rune Stone" (https://sketchfab.com/models/b78539a01fce41fea5d4ad1d1afd7b83) by Danciu Cristian-Alexa (https://sketchfab.com/DanciuCristianAlexa), licensed under CC-BY 4.0.
+
+This work is based on "Stylized Ruined Pillar" (https://sketchfab.com/models/0e66e5525d974b2d968e5b4c1636ef6c) by nico_hartl (https://sketchfab.com/nico_hartl), licensed under CC-BY 4.0.

@@ -8,12 +8,14 @@ Codex prepara e verifica il pacchetto; questa consegna non pubblica nulla.
 2. Usare il contenuto di `build/valle_mobile_benchmark/web/` oppure estrarre
    `build/valle_mobile_benchmark/valle_mobile_web.zip` in una cartella dedicata
    del sito, ad esempio `/qa/valle-mobile/`. Conservare insieme tutti i file
-   con i nomi esportati, inclusi CREDITS.txt e build_manifest.json.
+   con i nomi esportati, inclusi CREDITS.txt, build_manifest.json e
+   index.webmanifest (Content-Type application/manifest+json).
 3. Servire via HTTPS, con Content-Type application/wasm per il WASM.
    Singolo thread: non richiede isolamento cross-origin per SharedArrayBuffer.
    Evitare che la cache mischi HTML/JS/WASM/PCK di build diverse.
 4. Aprire l'URL finale in un browser prima di mandarlo al founder. Deve
-   comparire «TEST TELEFONO · 2.000 ISTANZE» con il pulsante Avvia.
+   comparire «SAFARI FIX 190» con il pulsante Avvia; il manifest deve avere
+   display:fullscreen, scope e start_url relativi alla cartella corrente.
    Comunicare al founder l'URL HTTPS della pagina index.html.
 
 Non modificare il gioco, il suo export preset, i salvataggi o il routing
@@ -29,10 +31,16 @@ Modelli originali con crediti e licenze riportati nel file CREDITS.txt.
   non ricavato dall'user-agent: correggi la casella se necessario.
 - Telefono orizzontale, risparmio energetico disattivato per confronti
   coerenti; evita altre attività e lascia raffreddare il telefono se caldo.
+- Per nascondere le barre: Safari → Condividi → Aggiungi alla schermata Home,
+  poi apri l'icona Valle QA. Il pacchetto include meta Apple e manifest
+  fullscreen; l'effettiva modalità Home va verificata sull'iPhone.
 - Tocca Avvia e lascia la pagina visibile per circa 130 secondi:
   5 s di preparazione +60 s di campione per ciascuna delle due varianti.
-- Se cambi app, blocchi lo schermo, apri un'altra scheda o ruoti/ridimensioni
-  la pagina, il risultato viene scartato: torna qui e tocca Ricomincia.
+- Se cambi app, blocchi lo schermo, nascondi la pagina, ruoti il telefono o
+  cambia la larghezza, il risultato viene scartato: tocca Ricomincia.
+  Tocchi e fuoco di canvas/pulsanti/casella del modello non interrompono.
+  L'altezza della barra Safari può cambiare. Se cambia il render, il riepilogo
+  segnala «Render variabile»: invia anche il JSON o ripeti dalla Home.
 - Quando compare COMPLETATO, fai uno screenshot che includa Forme/Kit B2,
   FPS, ms/frame e dati del dispositivo; invialo a Codex. I numeri restano
   fermi. Facoltativamente usa Scarica JSON e allega anche quel file.
@@ -43,7 +51,7 @@ mostra «QA BREVE» e produce quick=true. Non usarlo per il test sul telefono.
 ## Interpretazione
 
 Il confronto usa le stesse 2.000 posizioni deterministiche (seed91), camera,
-luce, viewport e soglie LOD della prova del kit integrato #145. Le forme
+luce, viewport iniziale e soglie LOD della prova del kit integrato #145. Le forme
 semplici hanno gli stessi ingombri; il secondo campione usa i modelli
 artistici, con due mulini animati. Non è il benchmark dell'intera mappa,
 del combattimento, del kit Alba o dei nuovi speciali #176.
