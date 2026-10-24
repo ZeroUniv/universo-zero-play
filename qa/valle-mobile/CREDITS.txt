@@ -1,0 +1,47 @@
+# Crediti del kit Valle — stile B2 approvato
+Il catalogo runtime contiene solo i 37 modelli sotto. Nessuna erba, terreno o luce.
+CC0: https://creativecommons.org/publicdomain/zero/1.0/
+CC-BY 4.0: https://creativecommons.org/licenses/by/4.0/
+This work is based on "Watermill" by Nudluria (https://sketchfab.com/nudluria) and "Stylized Bridge low poly" by Pikas (https://sketchfab.com/Pikas), licensed under CC-BY 4.0.
+Modifiche: selezione/assemblaggio dei moduli artistici, scala/orientamento/pivot, atlanti albedo dipinti, armonizzazione palette, riduzione e LOD. Nessuna mesh decorativa nuova generata via script; collisioni semplici e animazione della ruota aggiunte per il gioco.
+| ID runtime | Modello originale | Autore | Fonte | Licenza |
+|---|---|---|---|---|
+| `oak_field` | CommonTree_1 | Quaternius | [fonte](https://quaternius.com/packs/stylizednaturemegakit.html) | CC0-1.0 |
+| `oak_field_b` | CommonTree_3 | Quaternius | [fonte](https://quaternius.com/packs/stylizednaturemegakit.html) | CC0-1.0 |
+| `fir_forest` | Pine_1 | Quaternius | [fonte](https://quaternius.com/packs/stylizednaturemegakit.html) | CC0-1.0 |
+| `pine_forest` | Pine_3 | Quaternius | [fonte](https://quaternius.com/packs/stylizednaturemegakit.html) | CC0-1.0 |
+| `dead_tree` | DeadTree_1 | Quaternius | [fonte](https://quaternius.com/packs/stylizednaturemegakit.html) | CC0-1.0 |
+| `dead_tree_b` | DeadTree_3 | Quaternius | [fonte](https://quaternius.com/packs/stylizednaturemegakit.html) | CC0-1.0 |
+| `giant_oak` | TwistedTree_1 | Quaternius | [fonte](https://quaternius.com/packs/stylizednaturemegakit.html) | CC0-1.0 |
+| `giant_oak_b` | TwistedTree_3 | Quaternius | [fonte](https://quaternius.com/packs/stylizednaturemegakit.html) | CC0-1.0 |
+| `rock_a` | Rock_Medium_1 | Quaternius | [fonte](https://quaternius.com/packs/stylizednaturemegakit.html) | CC0-1.0 |
+| `rock_b` | Rock_Medium_2 | Quaternius | [fonte](https://quaternius.com/packs/stylizednaturemegakit.html) | CC0-1.0 |
+| `rock_c` | Rock_Medium_3 | Quaternius | [fonte](https://quaternius.com/packs/stylizednaturemegakit.html) | CC0-1.0 |
+| `ridge_boulder` | Rock_Medium_2 | Quaternius | [fonte](https://quaternius.com/packs/stylizednaturemegakit.html) | CC0-1.0 |
+| `fractured_boulder` | Rock_Medium_3 | Quaternius | [fonte](https://quaternius.com/packs/stylizednaturemegakit.html) | CC0-1.0 |
+| `oak_roots` | TwistedTree_1 | Quaternius | [fonte](https://quaternius.com/packs/stylizednaturemegakit.html) | CC0-1.0 |
+| `shrub` | Bush_Common | Quaternius | [fonte](https://quaternius.com/packs/stylizednaturemegakit.html) | CC0-1.0 |
+| `house` | house | Quaternius | [fonte](https://quaternius.com/packs/medievalvillagemegakit.html) | CC0-1.0 |
+| `house_b` | house | Quaternius | [fonte](https://quaternius.com/packs/medievalvillagemegakit.html) | CC0-1.0 |
+| `windmill` | scene | Nudluria | [fonte](https://sketchfab.com/3d-models/watermill-0e5944ed90664d408548b6d19601c7a8) | CC-BY-4.0 |
+| `bridge_12m` | scene | Pikas | [fonte](https://sketchfab.com/3d-models/stylized-bridge-low-poly-c561570254414e50985974e29d08834b) | CC-BY-4.0 |
+| `fence` | Prop_WoodenFence_Single | Quaternius | [fonte](https://quaternius.com/packs/medievalvillagemegakit.html) | CC0-1.0 |
+| `wagon` | Prop_Wagon | Quaternius | [fonte](https://quaternius.com/packs/medievalvillagemegakit.html) | CC0-1.0 |
+| `crate` | Prop_Crate | Quaternius | [fonte](https://quaternius.com/packs/medievalvillagemegakit.html) | CC0-1.0 |
+| `sack` | Bag | Quaternius | [fonte](https://quaternius.com/packs/fantasypropsmegakit.html) | CC0-1.0 |
+| `bench` | Bench | Quaternius | [fonte](https://quaternius.com/packs/fantasypropsmegakit.html) | CC0-1.0 |
+| `barrel` | Barrel | Quaternius | [fonte](https://quaternius.com/packs/fantasypropsmegakit.html) | CC0-1.0 |
+| `bucket` | Bucket_Wooden_1 | Quaternius | [fonte](https://quaternius.com/packs/fantasypropsmegakit.html) | CC0-1.0 |
+| `well` | scene | Quaternius | [fonte](https://opengameart.org/content/lowpoly-medieval-village-pack) | CC0-1.0 |
+| `reeds` | scene | Aredon | [fonte](https://opengameart.org/content/lowpoly-reed) | CC0-1.0 |
+| `pebble_1` | Pebble_Round_1 | Quaternius | [fonte](https://quaternius.com/packs/stylizednaturemegakit.html) | CC0-1.0 |
+| `pebble_2` | Pebble_Round_2 | Quaternius | [fonte](https://quaternius.com/packs/stylizednaturemegakit.html) | CC0-1.0 |
+| `pebble_3` | Pebble_Round_3 | Quaternius | [fonte](https://quaternius.com/packs/stylizednaturemegakit.html) | CC0-1.0 |
+| `ford_stones` | RockPath_Round_Wide | Quaternius | [fonte](https://quaternius.com/packs/stylizednaturemegakit.html) | CC0-1.0 |
+| `market_stall` | MarketStand_1 | Quaternius | [fonte](https://opengameart.org/content/lowpoly-medieval-village-pack) | CC0-1.0 |
+| `campfire` | Bonfire | Quaternius | [fonte](https://opengameart.org/content/lowpoly-medieval-village-pack) | CC0-1.0 |
+| `bastion_wall` | Wall | Quaternius | [fonte](https://opengameart.org/content/lowpoly-medieval-buildings) | CC0-1.0 |
+| `bastion_corner` | Wall | Quaternius | [fonte](https://opengameart.org/content/lowpoly-medieval-buildings) | CC0-1.0 |
+| `bastion_tower` | SmallSquareTowerBricks | Quaternius | [fonte](https://opengameart.org/content/lowpoly-medieval-buildings) | CC0-1.0 |
+
+Originali artistici Quaternius: Medieval Village MegaKit, Stylized Nature MegaKit, Fantasy Props MegaKit, LowPoly Medieval Village Pack e LowPoly Medieval Buildings. Canne: LowPoly Reed di Aredon. Licenze originali conservate in source/licenses/. I campioni storici in hero_sample/, style_sample/ e review/ sono QA esclusa dal runtime tramite .gdignore; non appartengono al catalogo consegnato.

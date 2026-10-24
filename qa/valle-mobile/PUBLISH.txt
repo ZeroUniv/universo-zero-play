@@ -1,0 +1,55 @@
+# Per Claude — pubblicazione del test iPhone (UZ-177)
+
+Il founder autorizza Claude a pubblicare questo test sul sito esistente.
+Codex prepara e verifica il pacchetto; questa consegna non pubblica nulla.
+
+1. Dalla radice, con Python e Godot 4.7.2 Stable/template Web installati:
+   `python assets/environment/valle/review/mobile/build_mobile.py --godot <eseguibile_godot>`.
+2. Usare il contenuto di `build/valle_mobile_benchmark/web/` oppure estrarre
+   `build/valle_mobile_benchmark/valle_mobile_web.zip` in una cartella dedicata
+   del sito, ad esempio `/qa/valle-mobile/`. Conservare insieme tutti i file
+   con i nomi esportati, inclusi CREDITS.txt e build_manifest.json.
+3. Servire via HTTPS, con Content-Type application/wasm per il WASM.
+   Singolo thread: non richiede isolamento cross-origin per SharedArrayBuffer.
+   Evitare che la cache mischi HTML/JS/WASM/PCK di build diverse.
+4. Aprire l'URL finale in un browser prima di mandarlo al founder. Deve
+   comparire «TEST TELEFONO · 2.000 ISTANZE» con il pulsante Avvia.
+   Comunicare al founder l'URL HTTPS della pagina index.html.
+
+Non modificare il gioco, il suo export preset, i salvataggi o il routing
+della demo per aggiungere questo test. Nessun server di raccolta risultati:
+la pagina non invia FPS o informazioni del dispositivo a servizi esterni.
+Il JSON viene scaricato localmente solo se l'utente preme il pulsante.
+Modelli originali con crediti e licenze riportati nel file CREDITS.txt.
+
+## Istruzioni per il founder
+
+- Apri il link sul tuo «iPhone 17 air», preferibilmente Safari; il browser
+  e iOS rilevati compariranno nel riepilogo. Il modello è dichiarato da te,
+  non ricavato dall'user-agent: correggi la casella se necessario.
+- Telefono orizzontale, risparmio energetico disattivato per confronti
+  coerenti; evita altre attività e lascia raffreddare il telefono se caldo.
+- Tocca Avvia e lascia la pagina visibile per circa 130 secondi:
+  5 s di preparazione +60 s di campione per ciascuna delle due varianti.
+- Se cambi app, blocchi lo schermo, apri un'altra scheda o ruoti/ridimensioni
+  la pagina, il risultato viene scartato: torna qui e tocca Ricomincia.
+- Quando compare COMPLETATO, fai uno screenshot che includa Forme/Kit B2,
+  FPS, ms/frame e dati del dispositivo; invialo a Codex. I numeri restano
+  fermi. Facoltativamente usa Scarica JSON e allega anche quel file.
+
+L'URL di prova corto `?quick=1` serve solo alla QA tecnica: dura circa 12 s,
+mostra «QA BREVE» e produce quick=true. Non usarlo per il test sul telefono.
+
+## Interpretazione
+
+Il confronto usa le stesse 2.000 posizioni deterministiche (seed91), camera,
+luce, viewport e soglie LOD della prova del kit integrato #145. Le forme
+semplici hanno gli stessi ingombri; il secondo campione usa i modelli
+artistici, con due mulini animati. Non è il benchmark dell'intera mappa,
+del combattimento, del kit Alba o dei nuovi speciali #176.
+
+ms/frame è l'intervallo medio fra i fotogrammi effettivamente eseguiti dal
+browser, inverso degli FPS; p95 è il 95° percentile degli intervalli. Non è
+una misura del tempo GPU. Display/vsync, risoluzione, risparmio energetico e
+temperatura possono limitare gli FPS. Nessuna soglia PASS mobile viene
+dichiarata prima dei numeri reali e dello screenshot del telefono.
