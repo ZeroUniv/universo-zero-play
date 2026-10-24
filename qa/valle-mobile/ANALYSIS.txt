@@ -1,0 +1,96 @@
+# UZ-177 — esito iPhone e correzione pixel UZ-193
+
+Misura reale inviata dal founder, UTC2026-10-24T19:06:39. Modello dichiarato
+iPhone17Air, Safari26.6.1; il campo OS letto dall'user-agent è iOS18.7 e va
+conservato come dato del browser, senza dedurne modello o versione OS reale.
+Originali immutati in results/iphone_2026_10_24_original.json e relativa JPG.
+
+| Variante | Fotogrammi / tempo | FPS | ms medi | p95 ms | draw call medie | primitive medie |
+|---|---:|---:|---:|---:|---:|---:|
+| Forme semplici | 3599 /60,005s |59,978|16,673|17|47|24565,7|
+| Kit B2 |3085 /60,013s|51,406|19,453|22|50|320631,6|
+
+quick=false, due campioni completi, pagina visibile, nessuna interruzione
+registrata. Posizioni2000/seed91/camera/luce invariati, 37 modelli #145 e due
+mulini animati. Il calcolo FPS × ms medi torna1000. Il costo medio aumenta
+di2,780ms (+16,7%), gli FPS scendono del14,3%; le draw call aumentano di3.
+Il controllo è vicino al limite60Hz: il delta non è una misura isolata del
+tempo GPU. Non si identifica il collo di bottiglia CPU/GPU con questo solo test.
+
+## Valutazione
+
+Il kit regge questo scenario Web sul telefono: frame time medio e p95 restano
+sotto il budget33,33ms di30FPS. Non soddisfa60FPS stabili (budget16,67ms), e
+non dimostra che la mappa completa abbia margine per altri sistemi. Il test
+usa MultiMesh e bucket LOD fissi: non include l'intera mappa, AI, combattimento,
+NPC, UZGrass, kit Alba o speciali #176. Nessuna certificazione APK Android o
+iOS nativo. La prossima prova nativa prevista è Samsung Note8 con APK.
+
+## Causa del dato3920×2205
+
+La diagnosi iniziale «più pixel dello schermo» non è supportata. Ho usato
+erroneamente ViewportTexture.get_size() come dimensione del render target.
+In Godot4.7.2, sul root Window questo metodo moltiplica vp->size, già in pixel,
+per get_stretch_transform().get_scale(). get_image() legge invece la texture
+reale del renderer. Fonte fissata:
+https://github.com/godotengine/godot/blob/4.7.2-stable/scene/main/viewport.cpp#L142
+
+La configurazione standalone è1280×720, canvas_items e aspect keep predefinito.
+Canvas iPhone:912×420 CSS ×DPR3 =2736×1260, coerente con un solo DPR. Il fit16:9
+ha stretch1260/720=1,75 e output atteso2240×1260, con bande laterali (visibili
+nella foto). Applicando ancora1,75 si ottiene esattamente3920×2205. Quindi il
+valore errato sovrastima il conteggio di pixel del fattore3,0625.
+
+2240×1260 è una ricostruzione dal JSON/configurazione, non un readback eseguito
+sull'iPhone. La build nuova acquisisce un readback per variante PRIMA del
+campione, esclude quel costo dal timer e confronta la dimensione con il
+calcolo logical_rect × stretch. Durante il campione non legge immagini GPU.
+La metrica FPS/p95 originale è indipendente dall'errore sui pixel e resta valida.
+
+Verifica renderizzata locale su Godot4.7.2/GTX960M: output reale e calcolato
+1875×1055; vecchio get_size2747×1546. La richiesta di finestra2240×1260 è stata
+ridimensionata dal sistema a1875×1055: riportiamo quanto effettivamente letto,
+non la risoluzione richiesta. Il caso riproduce l'errore senza Safari/DPR3.
+
+## Risoluzione proposta a Claude
+
+Per iniziare: sola scena3D con massimo1600px sul lato lungo e900px sul corto,
+senza supersampling; UI a risoluzione output, aspect del gioco invariato.
+Scala bilineare = min(1,1600/max(output_width,output_height),
+900/min(output_width,output_height)). Profilo basso:1280/720, da provare Note8.
+Il criterio è un punto di partenza da misurare, non una soglia hardware garantita.
+
+Nel benchmark iPhone atteso2240×1260: scala5/7≈0,7143, scena1600×900, circa49%
+di pixel3D in meno. Nel gioco aspect expand non va imposto16:9: con output
+2736×1260 la scena sarebbe circa1600×736, UI sempre a2736×1260. Non cambiare
+stretch del gioco per inseguire la vecchia metrica.
+
+Il gioco ha già mobile_3d_scale0,75 in UZZone/UZDemoFlow. Se Claude sceglie il
+limite, deve sostituire il valore di scala con quello calcolato, non applicare
+un secondo fattore0,75. Nessuna modifica a quegli script in questa PR.
+Fonte del comportamento dello scaling e del fallback Compatibility a bilinear:
+https://github.com/godotengine/godot/blob/4.7.2-stable/servers/rendering/renderer_viewport.cpp#L126
+Documentazione: https://docs.godotengine.org/en/stable/tutorials/3d/resolution_scaling.html
+
+## Prova breve rifatta e prossimo confronto
+
+Windows/GTX960M, rendering reale, stesso output1875×1055, quick=true,
+2s warmup +4s per variante. JSON in results/desktop_*_short.json.
+
+| Profilo | Scena3D calcolata | Output letto | Forme FPS | Kit FPS |
+|---|---:|---:|---:|---:|
+| native |1875×1055|1875×1055|60,20|60,24|
+| mobile1600 |1599×900|1875×1055|60,25|60,17|
+
+Entrambi i readback confermano l'output. Vsync limita entrambe le prove: non
+si ricava un guadagno prestazionale, e questi numeri non sono un test iPhone.
+Lo scarto di1px sul lato lungo deriva dal rapporto1875/1055 e dal troncamento.
+Il JSON schema3 separa output verificato e dimensione3D calcolata con la scala;
+non dichiara che il buffer3D ridotto sia stato letto direttamente dalla GPU.
+
+Dopo pubblicazione Claude, prova breve manuale iPhone (circa34s):
+https://zerouniv.github.io/universo-zero-play/qa/valle-mobile/index.html?brief=1&profile=mobile1600
+Deve comparire PIXEL FIX193, profilo3D max1600×900; inviare screenshot e JSON.
+Il guadagno sul telefono resta PENDENTE. Per confermare60FPS ripetere poi con
+campioni da60s, senza brief=1. La #177 può chiudere la misura originale con
+questo esito e limiti; l'ottimizzazione della risoluzione prosegue nella #193.

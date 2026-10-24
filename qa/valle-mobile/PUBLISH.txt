@@ -9,12 +9,12 @@ Codex prepara e verifica il pacchetto; questa consegna non pubblica nulla.
    `build/valle_mobile_benchmark/valle_mobile_web.zip` in una cartella dedicata
    del sito, ad esempio `/qa/valle-mobile/`. Conservare insieme tutti i file
    con i nomi esportati, inclusi CREDITS.txt, build_manifest.json e
-   index.webmanifest (Content-Type application/manifest+json).
+   ANALYSIS.txt e index.webmanifest (Content-Type application/manifest+json).
 3. Servire via HTTPS, con Content-Type application/wasm per il WASM.
    Singolo thread: non richiede isolamento cross-origin per SharedArrayBuffer.
    Evitare che la cache mischi HTML/JS/WASM/PCK di build diverse.
 4. Aprire l'URL finale in un browser prima di mandarlo al founder. Deve
-   comparire «SAFARI FIX 190» con il pulsante Avvia; il manifest deve avere
+   comparire «PIXEL FIX 193» con il pulsante Avvia; il manifest deve avere
    display:fullscreen, scope e start_url relativi alla cartella corrente.
    Comunicare al founder l'URL HTTPS della pagina index.html.
 
@@ -45,8 +45,25 @@ Modelli originali con crediti e licenze riportati nel file CREDITS.txt.
   FPS, ms/frame e dati del dispositivo; invialo a Codex. I numeri restano
   fermi. Facoltativamente usa Scarica JSON e allega anche quel file.
 
-L'URL di prova corto `?quick=1` serve solo alla QA tecnica: dura circa 12 s,
+Per il nuovo controllo iPhone con limite3D, inviare il link:
+`https://zerouniv.github.io/universo-zero-play/qa/valle-mobile/index.html?brief=1&profile=mobile1600`.
+Dura circa34s (2+15s per variante), richiede Avvia manuale e salva brief=true.
+Il founder manda screenshot e JSON. Confronto indicativo breve; per confermare
+60FPS stabili ripetere senza brief=1 (campioni da60s).
+Il selettore offre anche native e mobile1280, per confronto e fascia bassa.
+
+L'URL `?quick=1` serve solo alla QA tecnica automatica PC: dura circa 12 s,
 mostra «QA BREVE» e produce quick=true. Non usarlo per il test sul telefono.
+
+Schema3 distingue output pixel verificati con una lettura GPU prima del
+campione e pixel3D calcolati usando la scala. I vecchi campi pixel di schema2
+erano sovrastimati dallo stretch: vedere ANALYSIS.txt (iphone_analysis.md nel repo). Non ridurre il
+gioco partendo dal dato3920x2205 come se fosse una misura del buffer reale.
+Proposta per Claude: limite scena3D max1600lato lungo/max900corto, scala
+min(1,1600/max(output),900/min(output)); UI e aspect del gioco invariati.
+Il gioco ha già scala0,75: sostituire la scelta della scala con il limite,
+non moltiplicarla di nuovo. Profilo basso1280/720 per la futura prova Note8;
+nessuna prestazione Android/iOS nativa è certificata dal test Web.
 
 ## Interpretazione
 
